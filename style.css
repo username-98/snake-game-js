@@ -1,0 +1,92 @@
+html,
+body {
+    --color-1: #78e778;
+    --color-2: #c1edde;
+    margin: 0;
+    padding: 20px;
+    font-family: monospace;
+}
+
+body {
+    background-image: linear-gradient(135deg, var(--color-1), var(--color-2));
+    background-attachment: fixed;
+    /* height: 100vh; */
+    color: black;
+}
+
+.container {
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    background-image: linear-gradient(135deg, grey, rgb(0, 0, 0));
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+
+}
+
+.container1 {
+    width: 450px;
+    text-align: center;
+    margin: 5px auto;
+    background-image: linear-gradient(135deg, var(--color-1), var(--color-2));
+    color: black;
+    border-radius: 20px;
+    padding: 2px 0;
+}
+
+
+button {
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(127, 255, 127);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 200px;
+    border: black solid 1px;
+    margin: 50px auto;
+    padding: 3px;
+    background-image: url(./background.jpg);
+    background-color: rgb(110, 110, 110);
+    background-blend-mode: multiply;
+
+}
+
+.square {
+    width: 20px;
+    height: 20px;
+
+}
+
+.snake {
+    background-color: greenyellow;
+    border-radius: 100%;
+}
+
+.apple {
+    background-color: red;
+    border-radius: 100%;
+
+}
+
