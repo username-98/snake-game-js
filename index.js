@@ -29,12 +29,12 @@ function startGame() {
   currentSnake.forEach(index => squares[index].classList.add("snake"))
   timerId = setInterval(move, timer)
 }
- 
+
 
 
 function createGrid() {
 
-  for (let i = 0; i < width*width; i++) {
+  for (let i = 0; i < width * width; i++) {
     const square = document.createElement("div")
     square.classList.add("square")
     grid.appendChild(square)
@@ -49,20 +49,20 @@ currentSnake.forEach(index => squares[index].classList.add("snake"))
 
 function move() {
   if (
-    (currentSnake[0] + width >= width*width && direction === width) ||
-    (currentSnake[0] - width <= 0 && direction === -width) ||
+    (currentSnake[0] + width >= width * width && direction === width) ||
+    (currentSnake[0] - width < 0 && direction === -width) ||
     (currentSnake[0] % width === 0 && direction === -1) ||
-    (currentSnake[0] % width === width-1 && direction === 1)
+    (currentSnake[0] % width === width - 1 && direction === 1)
   ) {
     clearInterval(timerId)
     msgEl.textContent = "🧱You lost🧱"
 
-  }else if (squares[currentSnake[0] + direction].classList.contains("snake")){
+  } else if (squares[currentSnake[0] + direction].classList.contains("snake")) {
     clearInterval(timerId)
     msgEl.textContent = "😱You lost😱"
 
 
-  } 
+  }
   else {
     const tail = currentSnake.pop()
     squares[tail].classList.remove("snake")
@@ -80,47 +80,48 @@ function move() {
 
 
     }
-    
-    squares[currentSnake[0]].classList.add("snake")}
 
-
-
-    
+    squares[currentSnake[0]].classList.add("snake")
   }
+
+
+
+
+}
 
 
 function generateApple() {
   appleIndex = Math.floor(Math.random() * squares.length)
-  if (currentSnake.includes(appleIndex) ) {
+  if (currentSnake.includes(appleIndex)) {
     generateApple()
-  }else{
+  } else {
     squares[appleIndex].classList.add("apple")
   }
 }
 
 
-function control(e) {  
-  if(e.keyCode === 39) {
+function control(e) {
+  if (e.keyCode === 39) {
     // console.log(`Right`);
-    if(currentDirection !== -1) {
+    if (currentDirection !== -1) {
       direction = 1;
       currentDirection = direction;
-    }  
+    }
   } else if (e.keyCode === 38) {
-    if(currentDirection !== width) {
+    if (currentDirection !== width) {
       direction = -width;
       currentDirection = direction;
     }
   } else if (e.keyCode === 37) {
-    if(currentDirection !== 1) {
-        direction = -1; 
-        currentDirection = direction;
+    if (currentDirection !== 1) {
+      direction = -1;
+      currentDirection = direction;
     }
 
   } else if (e.keyCode === 40) {
-    if(currentDirection !== -width) {
-        direction = +width;
-        currentDirection = direction;
+    if (currentDirection !== -width) {
+      direction = +width;
+      currentDirection = direction;
     }
   }
 }
